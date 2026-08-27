@@ -1,0 +1,86 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+  "name": "wonton",
+  "build": {
+    "dockerfile": "Containerfile"
+  },
+  "runArgs": ["--security-opt=label=disable", "--userns=keep-id"],
+  "postCreateCommand": "mise install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "astro-build.astro-vscode",
+        "bmalehorn.vscode-fish",
+        "bradgashler.htmltagwrap",
+        "bradlc.vscode-tailwindcss",
+        "christian-kohler.path-intellisense",
+        "davidanson.vscode-markdownlint",
+        "dbaeumer.vscode-eslint",
+        "donjayamanne.githistory",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "foxundermoon.shell-format",
+        "github.codespaces",
+        "github.copilot",
+        "github.copilot-chat",
+        "github.vscode-github-actions",
+        "github.vscode-pull-request-github",
+        "mhutchie.git-graph",
+        "ms-azuretools.vscode-docker",
+        "ms-vsliveshare.vsliveshare",
+        "openai.chatgpt",
+        "redhat.vscode-yaml",
+        "redocly.openapi-vs-code",
+        "ritwickdey.liveserver",
+        "stylelint.vscode-stylelint",
+        "vitest.explorer",
+        "wallabyjs.console-ninja",
+        "wallabyjs.wallaby-vscode",
+        "wallabyjs.quokka-vscode",
+        "yoavbls.pretty-ts-errors",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        // editor fonts & ligatures
+        "editor.fontFamily": "'Symbols Nerd Font Mono','Fira Code','Cascadia Code','JetBrains Mono','Droid Sans Mono','monospace',monospace",
+        "editor.fontLigatures": true,
+
+        // terminal fonts
+        "terminal.integrated.fontFamily": "'Symbols Nerd Font Mono','Fira Code','Cascadia Code','JetBrains Mono','monospace'",
+
+        // terminal behavior
+        "terminal.integrated.sendKeybindingsToShell": true,
+
+        // save behavior
+        "files.autoSave": "afterDelay",
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit",
+          "source.fixAll": "explicit"
+        },
+
+        // formatting / whitespace
+        "editor.tabSize": 2,
+        "editor.rulers": [
+          { "column": 100, "color": "#80808022" },
+          { "column": 120, "color": "#80808055" }
+        ],
+        "editor.renderWhitespace": "selection",
+        "editor.formatOnPaste": true,
+        "editor.linkedEditing": true,
+
+        // git / scm
+        "git.confirmSync": true,
+        "git.autofetch": true,
+
+        // copilot
+        "github.copilot.nextEditSuggestions.enabled": true
+      }
+    }
+  }
+}
