@@ -1,0 +1,38 @@
+name: Biome
+description: Run Biome Format & Lint Check
+
+on:
+  workflow_call:
+    inputs:
+      bun-version-file:
+        required: false
+        type: string
+        default: "mise.toml"
+      biome-version:
+        required: false
+        type: string
+        default: "latest"
+      check-path:
+        required: false
+        type: string
+        default: "."
+
+jobs:
+  format:
+    name: Biome
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v7
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: ${{ inputs.bun-version-file }}
+
+      - name: Biome Check
+        run: bunx --bun @biomejs/biome@${{ inputs.biome-version }} ci ${{ inputs.check-path }}

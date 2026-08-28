@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  biome-format-lint-check:
+    name: Check
+    uses: SnakeDoc/wontonium/.github/workflows/biome.yaml@main
