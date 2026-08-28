@@ -4,7 +4,9 @@ ARG USER=wonton
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+# renovate: datasource=github-releases depName=jdx/mise
 ARG MISE_VERSION=v2026.8.14
+# renovate: datasource=github-releases depName=starship/starship
 ARG STARSHIP_VERSION=v1.26.0
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]

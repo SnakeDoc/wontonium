@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "renovate config",
-  "extends": ["config:best-practices"],
+  "extends": ["config:best-practices", "customManagers:dockerfileVersions"],
   "rangeStrategy": "pin",
   "automergeType": "pr",
   "semanticCommits": "enabled",
@@ -28,6 +28,11 @@
     {
       "description": "One week stability period for npm packages",
       "matchDatasources": ["npm"],
+      "minimumReleaseAge": "7 days"
+    },
+    {
+      "description": "One week stability period for github releases",
+      "matchDatasources": ["github-releases"],
       "minimumReleaseAge": "7 days"
     }
   ]
