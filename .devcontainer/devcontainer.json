@@ -11,6 +11,7 @@
       "extensions": [
         "anthropic.claude-code",
         "astro-build.astro-vscode",
+        "biomejs.biome",
         "bmalehorn.vscode-fish",
         "bradgashler.htmltagwrap",
         "bradlc.vscode-tailwindcss",
