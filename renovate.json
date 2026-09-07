@@ -3,9 +3,8 @@
   "description": "renovate config",
   "extends": ["config:best-practices", "customManagers:dockerfileVersions"],
   "rangeStrategy": "pin",
-  "automergeType": "pr",
   "semanticCommits": "enabled",
-  "commitBodyTable": true,
+  "minimumReleaseAge": "7 days",
   "assignees": ["SnakeDoc"],
 
   "lockFileMaintenance": {
@@ -24,16 +23,6 @@
       "description": "Automerge pin updates",
       "matchUpdateTypes": ["pin", "pinDigest"],
       "automerge": true
-    },
-    {
-      "description": "One week stability period for npm packages",
-      "matchDatasources": ["npm"],
-      "minimumReleaseAge": "7 days"
-    },
-    {
-      "description": "One week stability period for github releases",
-      "matchDatasources": ["github-releases"],
-      "minimumReleaseAge": "7 days"
     }
   ]
 }
