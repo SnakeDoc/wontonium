@@ -37,6 +37,11 @@
       "description": "Automerge pin updates",
       "matchUpdateTypes": ["pin", "pinDigest"],
       "automerge": true
+    },
+    {
+      "description": "Bump Bun et al in a grouped PR",
+      "matchDepNames": ["bun", "@types/bun", "oven/bun"],
+      "groupName": "bun"
     }
   ]
 }
