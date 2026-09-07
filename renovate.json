@@ -12,6 +12,20 @@
     "automerge": true
   },
 
+  "customManagers": [
+    {
+      "description": "Update Bun version in devEngines.*",
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)package\\.json$/"],
+      "matchStrings": [
+        "\"name\":\\s*\"bun\",\\s*\"version\":\\s*\"(?<currentValue>\\d+\\.\\d+\\.\\d+)\""
+      ],
+      "depNameTemplate": "bun",
+      "datasourceTemplate": "npm",
+      "versioningTemplate": "npm"
+    }
+  ],
+
   "packageRules": [
     {
       "description": "Automerge non-major updates",
