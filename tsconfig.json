@@ -1,12 +1,9 @@
 {
   "extends": ["@tsconfig/strictest/tsconfig.json"],
   "compilerOptions": {
-    "lib": ["ESNext"],
     "target": "ESNext",
     "module": "Preserve",
-    "moduleResolution": "bundler",
     "moduleDetection": "force",
-    "types": ["bun"],
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "noEmit": true,

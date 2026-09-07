@@ -6,6 +6,9 @@
   },
   "runArgs": ["--security-opt=label=disable", "--userns=keep-id"],
   "postCreateCommand": "mise install",
+  "containerEnv": {
+    "ASTRO_TELEMETRY_DISABLED": "1"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
