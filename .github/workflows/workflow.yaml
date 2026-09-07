@@ -14,4 +14,4 @@ concurrency:
 jobs:
   biome-format-lint-check:
     name: Check
-    uses: SnakeDoc/wontonium/.github/workflows/biome.yaml@7fa279e9db362d0d83d03df39d46fdfef6bf5e6b # main
+    uses: SnakeDoc/wontonium/.github/workflows/biome.yaml@3052df7cac48e6dc01c39e0dc43739ad91609590 # main
