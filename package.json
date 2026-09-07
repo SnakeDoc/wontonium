@@ -2,6 +2,16 @@
   "name": "wontonium",
   "type": "module",
   "private": true,
+  "devEngines": {
+    "runtime": {
+      "name": "bun",
+      "version": "1.4.0"
+    },
+    "packageManager": {
+      "name": "bun",
+      "version": "1.4.0"
+    }
+  },
   "scripts": {
     "check": "biome check",
     "fix": "biome check --write"
