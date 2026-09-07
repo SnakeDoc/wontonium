@@ -3,15 +3,28 @@
   "description": "renovate config",
   "extends": ["config:best-practices", "customManagers:dockerfileVersions"],
   "rangeStrategy": "pin",
-  "automergeType": "pr",
   "semanticCommits": "enabled",
-  "commitBodyTable": true,
+  "minimumReleaseAge": "7 days",
   "assignees": ["SnakeDoc"],
 
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true
   },
+
+  "customManagers": [
+    {
+      "description": "Update Bun version in devEngines.*",
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)package\\.json$/"],
+      "matchStrings": [
+        "\"name\":\\s*\"bun\",\\s*\"version\":\\s*\"(?<currentValue>\\d+\\.\\d+\\.\\d+)\""
+      ],
+      "depNameTemplate": "bun",
+      "datasourceTemplate": "npm",
+      "versioningTemplate": "npm"
+    }
+  ],
 
   "packageRules": [
     {
@@ -26,14 +39,9 @@
       "automerge": true
     },
     {
-      "description": "One week stability period for npm packages",
-      "matchDatasources": ["npm"],
-      "minimumReleaseAge": "7 days"
-    },
-    {
-      "description": "One week stability period for github releases",
-      "matchDatasources": ["github-releases"],
-      "minimumReleaseAge": "7 days"
+      "description": "Bump Bun et al in a grouped PR",
+      "matchDepNames": ["bun", "@types/bun", "oven/bun"],
+      "groupName": "bun"
     }
   ]
 }
