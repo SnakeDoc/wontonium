@@ -6,6 +6,9 @@
   },
   "runArgs": ["--security-opt=label=disable", "--userns=keep-id"],
   "postCreateCommand": "mise install",
+  "containerEnv": {
+    "ASTRO_TELEMETRY_DISABLED": "1"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -29,6 +32,7 @@
         "github.copilot-chat",
         "github.vscode-github-actions",
         "github.vscode-pull-request-github",
+        "hono.hono",
         "mhutchie.git-graph",
         "ms-azuretools.vscode-docker",
         "ms-vsliveshare.vsliveshare",
