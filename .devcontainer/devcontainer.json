@@ -58,9 +58,6 @@
         // terminal fonts
         "terminal.integrated.fontFamily": "'Symbols Nerd Font Mono','Fira Code','Cascadia Code','JetBrains Mono','monospace'",
 
-        // terminal behavior
-        "terminal.integrated.sendKeybindingsToShell": true,
-
         // save behavior
         "files.autoSave": "afterDelay",
         "files.trimTrailingWhitespace": true,
