@@ -1,0 +1,58 @@
+{
+  "$schema": "../../node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": "//",
+  "html": {
+    "experimentalFullSupportEnabled": true,
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true
+    },
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "linter": {
+    "rules": {
+      "nursery": {
+        "noAstroSetHtmlDirective": "error",
+        "useAstroClientOnlyDirectiveValue": "error",
+        "noTailwindArbitraryValue": "error",
+        "useTailwindShorthandClasses": "error"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.svg"],
+      "linter": { "enabled": false }
+    },
+    {
+      "includes": ["**/*.astro"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noJsxLiterals": "off",
+            "useFilenamingConvention": {
+              "level": "on",
+              "options": { "filenameCases": ["kebab-case", "PascalCase"] }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/*.config.*"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    }
+  ]
+}
