@@ -7,7 +7,7 @@ on:
       bun-version-file:
         required: false
         type: string
-        default: "mise.toml"
+        default: "package.json"
       biome-version:
         required: false
         type: string
