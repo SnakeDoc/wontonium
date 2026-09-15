@@ -1,5 +1,6 @@
 // For format details, see https://aka.ms/devcontainer.json.
 {
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/refs/heads/main/schemas/devContainer.schema.json",
   "name": "wonton",
   "build": {
     "dockerfile": "Containerfile"
