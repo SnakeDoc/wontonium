@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.11/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -9,15 +9,25 @@
     "useEditorconfig": true
   },
   "linter": {
+    "domains": {
+      "project": "all",
+      "turborepo": "all",
+      "types": "all"
+    },
     "rules": {
       "preset": "all"
     }
   },
   "assist": {
     "actions": {
-      "source": {
-        "recommended": true
-      }
+      "preset": "recommended"
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "asNeeded",
+      "indentStyle": "space"
     }
   }
 }
