@@ -6,6 +6,9 @@
     "dockerfile": "Containerfile"
   },
   "runArgs": ["--security-opt=label=disable", "--userns=keep-id"],
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-fish-cache,target=/home/wonton/.local/share/fish,type=volume"
+  ],
   "postCreateCommand": "mise install",
   "containerEnv": {
     "ASTRO_TELEMETRY_DISABLED": "1"

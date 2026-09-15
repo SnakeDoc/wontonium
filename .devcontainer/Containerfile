@@ -37,6 +37,9 @@ RUN useradd --create-home --user-group --shell /usr/bin/fish ${USER}
 USER ${USER}
 WORKDIR /home/${USER}
 
+# create directories now to avoid root ownership at runtime (devcontainer mkdir result)
+RUN mkdir -p /home/${USER}/.local/share/fish
+
 RUN mkdir -p /home/${USER}/.config/fish/conf.d && \
   echo '/usr/local/bin/mise activate fish | source' \
   > /home/${USER}/.config/fish/conf.d/mise.fish
