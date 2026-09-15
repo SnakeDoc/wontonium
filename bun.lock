@@ -14,7 +14,7 @@
     "apps/backend": {
       "name": "backend",
       "dependencies": {
-        "hono": "^4.13.7",
+        "hono": "4.13.7",
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -24,7 +24,7 @@
       "name": "frontend",
       "version": "0.0.1",
       "dependencies": {
-        "astro": "^7.3.1",
+        "astro": "7.3.2",
       },
     },
   },
