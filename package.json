@@ -2,6 +2,9 @@
   "name": "wontonium",
   "type": "module",
   "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
   "devEngines": {
     "runtime": {
       "name": "bun",
