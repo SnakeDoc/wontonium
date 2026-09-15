@@ -34,5 +34,8 @@ jobs:
         with:
           bun-version-file: ${{ inputs.bun-version-file }}
 
+      - name: Install Dependencies
+        run: bun install
+
       - name: Biome Check
         run: bunx --bun @biomejs/biome@${{ inputs.biome-version }} ci ${{ inputs.check-path }}
