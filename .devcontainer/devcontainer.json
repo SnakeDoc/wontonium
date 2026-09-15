@@ -18,10 +18,8 @@
         "bradlc.vscode-tailwindcss",
         "christian-kohler.path-intellisense",
         "davidanson.vscode-markdownlint",
-        "dbaeumer.vscode-eslint",
         "donjayamanne.githistory",
         "editorconfig.editorconfig",
-        "esbenp.prettier-vscode",
         "formulahendry.auto-close-tag",
         "formulahendry.auto-rename-tag",
         "foxundermoon.shell-format",
@@ -67,6 +65,7 @@
         },
 
         // formatting / whitespace
+        "editor.defaultFormatter": "biomejs.biome",
         "editor.tabSize": 2,
         "editor.rulers": [
           { "column": 100, "color": "#80808022" },
