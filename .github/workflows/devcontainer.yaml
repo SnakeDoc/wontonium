@@ -38,7 +38,7 @@ jobs:
       id-token: write
       packages: write
     with:
-      name: devcontainer
+      name: wontonium/devcontainer
       description: Devcontainer for Wontonium
       context: .devcontainer
       push: ${{ github.ref == 'refs/heads/main' }}
@@ -51,6 +51,6 @@ jobs:
     permissions:
       packages: write
     with:
-      name: devcontainer
+      name: wontonium/devcontainer
       digest: ${{ needs.build.outputs.digest }}
       tags: type=raw,value=latest
