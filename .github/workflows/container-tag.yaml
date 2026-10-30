@@ -28,6 +28,7 @@ on:
 
 jobs:
   tag:
+    name: Container
     runs-on: ubuntu-latest
     permissions:
       packages: write

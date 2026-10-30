@@ -1,4 +1,4 @@
-name: Lint Container
+name: Hadolint
 description: Uses hadolint to check Containerfiles for best practices and common issues.
 
 on:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   lint:
-    name: Hadolint
+    name: Lint
     runs-on: ubuntu-latest
 
     permissions:
