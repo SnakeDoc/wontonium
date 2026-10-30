@@ -61,7 +61,7 @@ on:
 jobs:
   build:
     name: Container
-    uses: docker/github-builder/.github/workflows/build.yml@v1
+    uses: docker/github-builder/.github/workflows/build.yml@cbc9d42f8c89a55623392aadd03600965b80e963 # v1.18.1
     with:
       output: image
       push: ${{ inputs.push }}
