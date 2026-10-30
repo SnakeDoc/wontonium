@@ -42,6 +42,17 @@
       "description": "Bump Bun et al in a grouped PR",
       "matchDepNames": ["bun", "@types/bun", "oven/bun"],
       "groupName": "bun"
+    },
+    {
+      "description": "Enable & group deb updates in Containerfile",
+      "matchFileNames": ["Containerfile"],
+      "matchDatasources": ["deb"],
+      "groupName": "debian packages",
+      "registryUrls": [
+        "https://deb.debian.org/debian?suite=trixie&components=main&binaryArch=amd64",
+        "https://deb.debian.org/debian?suite=trixie-updates&components=main&binaryArch=amd64",
+        "https://deb.debian.org/debian-security?suite=trixie-security&components=main&binaryArch=amd64"
+      ]
     }
   ]
 }
