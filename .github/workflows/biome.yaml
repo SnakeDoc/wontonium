@@ -11,7 +11,7 @@ on:
       biome-version:
         required: false
         type: string
-        default: "latest"
+        default: ""
       check-path:
         required: false
         type: string
