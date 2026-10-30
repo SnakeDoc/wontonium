@@ -18,8 +18,8 @@ on:
         default: "."
 
 jobs:
-  format:
-    name: Biome
+  biome:
+    name: Check
     runs-on: ubuntu-latest
 
     permissions:
