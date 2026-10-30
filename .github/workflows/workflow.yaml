@@ -2,16 +2,21 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+    paths-ignore: &paths-ignore
+      - .devcontainer/Containerfile
+      - .github/workflows/devcontainer.yaml
+      - .github/workflows/container-build.yaml
+      - .github/workflows/container-tag.yaml
   pull_request:
+    paths-ignore: *paths-ignore
   workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  biome-format-lint-check:
-    name: Check
+  biome:
+    name: Biome
     uses: ./.github/workflows/biome.yaml
