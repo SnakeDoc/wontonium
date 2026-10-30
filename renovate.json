@@ -45,7 +45,6 @@
     },
     {
       "description": "Enable & group deb updates in Containerfile",
-      "matchFileNames": ["Containerfile"],
       "matchDatasources": ["deb"],
       "groupName": "debian packages",
       "registryUrls": [
