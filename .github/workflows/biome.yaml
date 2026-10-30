@@ -11,15 +11,15 @@ on:
       biome-version:
         required: false
         type: string
-        default: "latest"
+        default: ""
       check-path:
         required: false
         type: string
         default: "."
 
 jobs:
-  format:
-    name: Biome
+  biome:
+    name: Check
     runs-on: ubuntu-latest
 
     permissions:
