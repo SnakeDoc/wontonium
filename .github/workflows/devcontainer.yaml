@@ -39,6 +39,7 @@ jobs:
       packages: write
     with:
       name: devcontainer
+      description: Devcontainer for Wontonium
       context: .devcontainer
       push: ${{ github.ref == 'refs/heads/main' }}
 

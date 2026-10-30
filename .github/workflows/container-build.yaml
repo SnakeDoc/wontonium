@@ -16,6 +16,10 @@ on:
         description: Image name, published as ghcr.io/<repository owner>/<name>
         required: true
         type: string
+      description:
+        description: Image description, shown on the ghcr.io package page
+        required: true
+        type: string
       context:
         description: Build context, a directory in the repository
         required: false
@@ -76,9 +80,11 @@ jobs:
       set-meta-annotations: true
       meta-images: ghcr.io/${{ github.repository_owner }}/${{ inputs.name }}
       meta-tags: ${{ inputs.tags }}
-      meta-labels: &created |
+      meta-labels: &meta |
+        org.opencontainers.image.title=${{ inputs.name }}
+        org.opencontainers.image.description=${{ inputs.description }}
         org.opencontainers.image.created={{commit_date 'YYYY-MM-DDTHH:mm:ss[Z]'}}
-      meta-annotations: *created
+      meta-annotations: *meta
     secrets:
       registry-auths: |
         - registry: ghcr.io
