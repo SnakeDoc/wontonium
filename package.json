@@ -8,11 +8,11 @@
   "devEngines": {
     "runtime": {
       "name": "bun",
-      "version": "1.4.3"
+      "version": "1.4.4"
     },
     "packageManager": {
       "name": "bun",
-      "version": "1.4.3"
+      "version": "1.4.4"
     }
   },
   "scripts": {
@@ -22,7 +22,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.5.15",
     "@tsconfig/strictest": "2.0.8",
-    "@types/bun": "1.4.3",
+    "@types/bun": "1.4.4",
     "typescript": "7.0.2"
   }
 }
