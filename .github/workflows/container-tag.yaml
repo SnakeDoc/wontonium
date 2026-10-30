@@ -1,0 +1,62 @@
+name: Tag Container Image
+
+# attaches tags to a previously built and verified container image
+# does not rebuild or re-upload the image
+#
+# Required permissions:
+#   - packages: write
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: Image name, published as ghcr.io/<repository owner>/<name>
+        required: true
+        type: string
+      digest:
+        description: Image digest to tag
+        required: true
+        type: string
+      tags:
+        description: docker/metadata-action tag rules to attach, one per line
+        required: false
+        type: string
+    outputs:
+      tags:
+        description: image references that were published, one per line
+        value: ${{ jobs.tag.outputs.tags }}
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+
+    outputs:
+      tags: ${{ steps.meta.outputs.tags }}
+
+    steps:
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
+      - name: Resolve Tags
+        id: meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/${{ inputs.name }}
+          tags: ${{ inputs.tags }}
+
+      - name: Tag Digest
+        env:
+          IMAGE: ghcr.io/${{ github.repository_owner }}/${{ inputs.name }}
+          DIGEST: ${{ inputs.digest }}
+          TAGS: ${{ steps.meta.outputs.tags }}
+        run: |
+          : "${DIGEST:?digest is required}"
+          : "${TAGS:?no tags resolved for this ref}"
+          readarray -t tags <<< "$TAGS"
+          docker buildx imagetools create "${tags[@]/#/--tag=}" "${IMAGE,,}@${DIGEST}"

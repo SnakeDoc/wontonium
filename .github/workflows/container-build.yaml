@@ -1,0 +1,85 @@
+name: Build Container Image
+
+# docker/github-builder with signed provenance + SBOM, signed cache
+# builds from current commit, optionally pushes to ghcr.io registry
+# defaults to current commit sha as the image tag
+#
+# Required permissions:
+#   - contents: read
+#   - id-token: write
+#   - packages: write (when pushing)
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: Image name, published as ghcr.io/<repository owner>/<name>
+        required: true
+        type: string
+      context:
+        description: Build context, a directory in the repository
+        required: false
+        type: string
+        default: .
+      file:
+        description: Path to the Containerfile, relative to `context`
+        required: false
+        type: string
+        default: Containerfile
+      platforms:
+        description: Comma separated list of platforms
+        required: false
+        type: string
+        default: linux/amd64,linux/arm64
+      build-args:
+        description: Build-time variables, one KEY=value per line
+        required: false
+        type: string
+      target:
+        description: Target stage to build
+        required: false
+        type: string
+      tags:
+        description: docker/metadata-action tag rules, one per line
+        required: false
+        type: string
+        default: type=sha,format=long,prefix=
+      push:
+        description: Push the image
+        required: false
+        type: boolean
+        default: false
+    outputs:
+      digest:
+        description: Digest of the pushed image index, empty if not pushed
+        value: ${{ jobs.build.outputs.digest }}
+
+jobs:
+  build:
+    uses: docker/github-builder/.github/workflows/build.yml@v1
+    with:
+      output: image
+      push: ${{ inputs.push }}
+      context: ${{ inputs.context }}
+      file: ${{ inputs.file }}
+      platforms: ${{ inputs.platforms }}
+      build-args: |
+        SOURCE_DATE_EPOCH=context
+        ${{ inputs.build-args }}
+      target: ${{ inputs.target }}
+      cache: true
+      cache-scope: ${{ inputs.name }}
+      cache-mode: max
+      sbom: true
+      set-meta-labels: true
+      set-meta-annotations: true
+      meta-images: ghcr.io/${{ github.repository_owner }}/${{ inputs.name }}
+      meta-tags: ${{ inputs.tags }}
+      meta-labels: &created |
+        org.opencontainers.image.created={{commit_date 'YYYY-MM-DDTHH:mm:ss[Z]'}}
+      meta-annotations: *created
+    secrets:
+      registry-auths: |
+        - registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
