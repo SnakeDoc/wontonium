@@ -54,6 +54,13 @@
         "https://deb.debian.org/debian?suite=trixie-updates&components=main&binaryArch=amd64",
         "https://deb.debian.org/debian-security?suite=trixie-security&components=main&binaryArch=amd64"
       ]
+    },
+    {
+      "description": "Pin and update the devcontainer image",
+      "matchManagers": ["devcontainer"],
+      "matchDatasources": ["docker"],
+      "pinDigests": true,
+      "minimumReleaseAge": null
     }
   ]
 }
