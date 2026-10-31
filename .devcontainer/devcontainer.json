@@ -2,9 +2,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/refs/heads/main/schemas/devContainer.schema.json",
   "name": "wonton",
-  "build": {
-    "dockerfile": "Containerfile"
-  },
+  "image": "ghcr.io/snakedoc/wontonium/devcontainer:latest",
   "runArgs": ["--security-opt=label=disable", "--userns=keep-id"],
   "mounts": [
     "source=${localWorkspaceFolderBasename}-fish-cache,target=/home/wonton/.local/share/fish,type=volume"
@@ -43,6 +41,7 @@
         "redocly.openapi-vs-code",
         "ritwickdey.liveserver",
         "stylelint.vscode-stylelint",
+        "typespec.typespec-vscode",
         "vitest.explorer",
         "wallabyjs.console-ninja",
         "wallabyjs.wallaby-vscode",
@@ -51,6 +50,9 @@
         "yzhang.markdown-all-in-one"
       ],
       "settings": {
+        // TypeSpec server path
+        "typespec.tsp-server.path": "${workspaceFolder}/apps/contract/node_modules/@typespec/compiler/cmd/tsp-server.js",
+
         // editor fonts & ligatures
         "editor.fontFamily": "'Symbols Nerd Font Mono','Fira Code','Cascadia Code','JetBrains Mono','Droid Sans Mono','monospace',monospace",
         "editor.fontLigatures": true,
