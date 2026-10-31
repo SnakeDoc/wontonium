@@ -61,6 +61,13 @@
       "matchDatasources": ["docker"],
       "pinDigests": true,
       "minimumReleaseAge": null
+    },
+    {
+      "description": "Pin and update devcontainer Containerfile",
+      "matchManagers": ["dockerfile"],
+      "matchDatasources": ["docker"],
+      "pinDigests": true,
+      "minimumReleaseAge": null
     }
   ]
 }
