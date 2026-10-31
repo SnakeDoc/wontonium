@@ -44,9 +44,11 @@
       "groupName": "bun"
     },
     {
-      "description": "Enable & group deb updates in Containerfile",
+      "description": "Group Debian package updates in Containerfile",
       "matchDatasources": ["deb"],
       "groupName": "debian packages",
+      "rangeStrategy": "replace",
+      "minimumReleaseAge": null,
       "registryUrls": [
         "https://deb.debian.org/debian?suite=trixie&components=main&binaryArch=amd64",
         "https://deb.debian.org/debian?suite=trixie-updates&components=main&binaryArch=amd64",
