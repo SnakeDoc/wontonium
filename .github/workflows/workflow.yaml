@@ -8,6 +8,7 @@ on:
       - .github/workflows/devcontainer.yaml
       - .github/workflows/container-build.yaml
       - .github/workflows/container-tag.yaml
+      - apps/contract/**
   pull_request:
     paths-ignore: *paths-ignore
   workflow_dispatch:

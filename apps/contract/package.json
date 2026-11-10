@@ -1,0 +1,17 @@
+{
+  "name": "openapi",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsp compile ./src",
+    "format": "tsp format ./src/**/*.tsp"
+  },
+  "dependencies": {
+    "@typespec/compiler": "^1.17.0",
+    "@typespec/http": "^1.17.0",
+    "@typespec/rest": "^0.87.0",
+    "@typespec/openapi": "^1.17.0",
+    "@typespec/openapi3": "^1.17.0"
+  }
+}
