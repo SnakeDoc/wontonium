@@ -19,5 +19,5 @@ jobs:
     uses: ./.github/workflows/biome.yaml
 
   format:
-    name: Format
+    name: TypeSpec
     uses: ./.github/workflows/tsp-format.yaml
