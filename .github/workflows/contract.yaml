@@ -1,4 +1,4 @@
-name: Contract CI
+name: Contract
 
 on:
   push:
@@ -19,5 +19,5 @@ jobs:
     uses: ./.github/workflows/biome.yaml
 
   format:
-    name: TypeSpec Format
+    name: Format
     uses: ./.github/workflows/tsp-format.yaml
