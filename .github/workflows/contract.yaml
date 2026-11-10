@@ -1,0 +1,23 @@
+name: Contract
+
+on:
+  push:
+    branches: [main]
+    paths: &paths
+      - apps/contract/**
+  pull_request:
+    paths: *paths
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  biome:
+    name: Biome
+    uses: ./.github/workflows/biome.yaml
+
+  format:
+    name: TypeSpec
+    uses: ./.github/workflows/tsp-format.yaml
