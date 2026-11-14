@@ -28,7 +28,7 @@
         "@typespec/http": "1.17.0",
         "@typespec/openapi": "1.17.0",
         "@typespec/openapi3": "1.17.0",
-        "@typespec/rest": "0.87.0",
+        "@typespec/rest": "0.88.0",
       },
     },
     "apps/frontend": {
@@ -356,7 +356,7 @@
 
     "@typespec/openapi3": ["@typespec/openapi3@1.17.0", "", { "dependencies": { "@scalar/json-magic": "^0.13.2", "@scalar/openapi-parser": "^0.29.1", "@scalar/openapi-types": "^0.9.5", "@scalar/types": "^0.19.0", "@typespec/asset-emitter": "^0.79.3", "yaml": "^2.9.0" }, "peerDependencies": { "@typespec/compiler": "^1.17.0", "@typespec/events": "^0.87.0", "@typespec/http": "^1.17.0", "@typespec/json-schema": "^1.17.0", "@typespec/openapi": "^1.17.0", "@typespec/sse": "^0.87.0", "@typespec/streams": "^0.87.0", "@typespec/versioning": "^0.87.0", "@typespec/xml": "*" }, "optionalPeers": ["@typespec/events", "@typespec/json-schema", "@typespec/sse", "@typespec/streams", "@typespec/versioning", "@typespec/xml"], "bin": { "tsp-openapi3": "cmd/tsp-openapi3.js" } }, "sha512-BC5zSemNfyFWIgJOj0TrwVA3KULIvCmlrDhqESMbzmN4h3byhXR/PENxPP4TlPKfu3M1KE44esnxSDQ5Py3WnA=="],
 
-    "@typespec/rest": ["@typespec/rest@0.87.0", "", { "peerDependencies": { "@typespec/compiler": "^1.17.0", "@typespec/http": "^1.17.0" } }, "sha512-Oi47F6IJWyP/efMXf+OUwJTKRrfPpsXPzFZIxG5x2HpAgTwQ0xAUPkrQ6XoQ4rdmwN3XPm0nV54lw5GKljB9LQ=="],
+    "@typespec/rest": ["@typespec/rest@0.88.0", "", { "peerDependencies": { "@typespec/compiler": "^1.18.0", "@typespec/http": "^1.18.0" } }, "sha512-xWJ+bZ5AEe+PGrzyjqBamaBqpgdCHDygJIPX9HP9NAFfwPoompuMV1WqohDEkH7htFs06vECWQ+UeX8cU5bcwg=="],
 
     "@ungap/structured-clone": ["@ungap/structured-clone@1.4.0", "", {}, "sha512-1mEZtMKPM09vDmQt5y7YvmN2+DFTP7Tg0EWXdic8/C6VRnpb33e4ghisCIE3WZjsE2N8mf+QV1Zqh7ZFYLWInQ=="],
 
