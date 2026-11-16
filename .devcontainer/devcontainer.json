@@ -2,7 +2,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/refs/heads/main/schemas/devContainer.schema.json",
   "name": "wonton",
-  "image": "ghcr.io/snakedoc/wontonium/devcontainer:latest@sha256:7690463a1f6810e1c3742276edc929a4ba966e62ca0a66b77b13237ad1cd014d",
+  "image": "ghcr.io/snakedoc/wontonium/devcontainer:latest@sha256:161d2952cb325e30041f86fe16df6affd4f198a10bcae01bd96bf59c1979c344",
   "runArgs": ["--security-opt=label=disable", "--userns=keep-id"],
   "mounts": [
     "source=${localWorkspaceFolderBasename}-fish-cache,target=/home/wonton/.local/share/fish,type=volume"
